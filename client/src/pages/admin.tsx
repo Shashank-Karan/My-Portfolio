@@ -473,7 +473,7 @@ export default function AdminPanel() {
       title: "Export complete",
       description: "Messages have been exported to CSV",
     });
-  };;
+  };
 
   // Project image handling functions
   const handleProjectImageUpload = (file: File, isEdit: boolean = false) => {
@@ -696,11 +696,11 @@ export default function AdminPanel() {
             <TabsTrigger value="contacts" className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
               Messages
-              {contactMessages && Array.isArray(contactMessages) && (contactMessages as any[]).length > 0 && (
+              {contactMessages && Array.isArray(contactMessages) && contactMessages.length > 0 && (
                 <Badge variant="secondary" className="ml-1">
-                  {(contactMessages as any[]).length}
+                  {contactMessages.length}
                 </Badge>
-              ) as React.ReactNode}
+              )}
             </TabsTrigger>
           </TabsList>
 
