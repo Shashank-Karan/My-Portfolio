@@ -35,7 +35,7 @@ export default function AdminPanel() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [password, setPassword] = useState("");
   const [content, setContent] = useState<PortfolioContent>({
-          heroTitle: "" as React.ReactNode,
+    heroTitle: "",
     heroSubtitle: "",
     heroDescription: "",
     aboutText: "",
@@ -82,13 +82,13 @@ export default function AdminPanel() {
 
   // Get portfolio content
   const { data: portfolioContent, isLoading: contentLoading } = useQuery({
-  queryKey: ["/api/portfolio-content"] as React.ReactNode,
+  queryKey: ["/api/portfolio-content"],
     enabled: isLoggedIn,
   });
 
   // Get contact messages
   const { data: contactMessages, isLoading: contactsLoading } = useQuery({
-  queryKey: ["/api/contacts"] as React.ReactNode,
+  queryKey: ["/api/contacts"],
     enabled: isLoggedIn,
   });
 
@@ -217,7 +217,7 @@ export default function AdminPanel() {
   };
 
   const handleInputChange = (field: keyof PortfolioContent, value: string) => {
-  setContent(prev => ({ ...prev, [field]: value as React.ReactNode }));
+  setContent(prev => ({ ...prev, [field]: value }));
     setHasUnsavedChanges(true);
   };
 
