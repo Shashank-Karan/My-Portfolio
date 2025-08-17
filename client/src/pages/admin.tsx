@@ -696,7 +696,7 @@ export default function AdminPanel() {
             <TabsTrigger value="contacts" className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
               Messages
-              {contactMessages && Array.isArray(contactMessages) && contactMessages.length > 0 && (
+              {Array.isArray(contactMessages) && contactMessages.length > 0 && (
                 <Badge variant="secondary" className="ml-1">
                   {contactMessages.length}
                 </Badge>
@@ -1371,14 +1371,14 @@ export default function AdminPanel() {
                     <CardTitle className="flex items-center gap-2">
                       <Mail className="w-5 h-5" />
                       Contact Messages
-                      {contactMessages && Array.isArray(contactMessages) && (
-                        <Badge variant="secondary">{(contactMessages as any[]).length} total</Badge>
+                      {Array.isArray(contactMessages) && (
+                        <Badge variant="secondary">{contactMessages.length} total</Badge>
                       )}
                     </CardTitle>
                     <CardDescription>Messages received through your portfolio contact form</CardDescription>
                   </div>
                   
-                  {contactMessages && Array.isArray(contactMessages) && (contactMessages as any[]).length > 0 && (
+                  {Array.isArray(contactMessages) && contactMessages.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       <Button
                         variant="outline"
@@ -1407,7 +1407,7 @@ export default function AdminPanel() {
               
               <CardContent>
                 {/* Enhanced Controls */}
-                {contactMessages && Array.isArray(contactMessages) && (contactMessages as any[]).length > 0 && (
+                {Array.isArray(contactMessages) && contactMessages.length > 0 && (
                   <div className="space-y-4 mb-6">
                     {/* Search Bar */}
                     <div className="relative">
@@ -1426,6 +1426,7 @@ export default function AdminPanel() {
                         <div className="flex items-center gap-2">
                           <Filter className="w-4 h-4 text-gray-500" />
                           <select
+                            aria-label="Filter messages"
                             value={messageFilter}
                             onChange={(e) => setMessageFilter(e.target.value as any)}
                             className="text-sm border rounded px-2 py-1"
